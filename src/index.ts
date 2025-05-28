@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use('/recipes', recipeRouter);
+app.use('/api/recipes', recipeRouter);
 
 AppDataSource.initialize()
   .then(() => {

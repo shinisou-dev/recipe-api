@@ -1,32 +1,16 @@
-import express from 'express';
+import { Router } from 'express';
 
-const router = express.Router();
+import { RecipeController } from '~controllers/recipe.controller';
 
-router.get('/', (req, res) => {
-  /*
-  const { filter, sortBy, sortDirection } = req.query;
+const router = Router();
+const recipeController = new RecipeController();
 
+router.get('/', recipeController.getAllRecipes);
+router.get('/:id', recipeController.getRecipeById);
+router.post('/', recipeController.createRecipe);
+router.put('/:id', recipeController.updateRecipe);
+router.delete('/:id', recipeController.deleteRecipe);
 
-  let recipes: Record<string, string>[] = [];
-
-  if (filter) {
-    recipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(filter.toString().toLowerCase()));
-  }
-
-  if (sortBy === 'name') {
-    recipes.sort((a, b) => (sortDirection === 'desc' ? (a.name < b.name ? 1 : 0) : a.name > b.name ? 1 : 0));
-  } else if (sortBy === 'rating') {
-    recipes.sort((a, b) => (sortDirection === 'desc' ? (a.rating < b.rating ? 1 : 0) : a.rating > b.rating ? 1 : 0));
-  }
-    */
-
-  res.send('wohoo');
-});
-
-router.get('/:id', (req, res) => {
-  const { id } = req.params;
-
-  res.send(`Hello from recipes/${id}`);
-});
+router.post('/:id/rate', recipeController.rateRecipe);
 
 export default router;
