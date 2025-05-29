@@ -36,6 +36,7 @@ export class RecipeService {
       const existingIngredient = await this.ingredientRepo.findOneBy({ name: recipeIngredient.ingredient.name });
 
       if (!existingIngredient) {
+        console.log(`Ingredient ${recipeIngredient.ingredient.name} does not exist. Creating new ingredient.`);
         const newIngredient = this.ingredientRepo.create(recipeIngredient.ingredient);
         await this.ingredientRepo.save(newIngredient);
       }
@@ -65,6 +66,20 @@ export class RecipeService {
 
     if (!existingRecipe) {
       throw new Error(`Recipe with ID ${recipeId} not found`);
+    }
+
+    const existingUser = await this.userRepo.findOneBy({
+      discordUsername: data.user?.discordUsername
+    });
+
+    if (!existingUser) {
+      console.log(`User with discordUsername ${data.user?.discordUsername} does not exist. Creating new user.`);
+      if (data.user) {
+        const newUser = this.userRepo.create(data.user);
+        await this.userRepo.save(newUser);
+      } else {
+        throw new Error('User data is required to create a new user.');
+      }
     }
 
     const existingRating = await this.ratingRepo.findOneBy({

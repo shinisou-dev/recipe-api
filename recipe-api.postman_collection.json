@@ -1,0 +1,137 @@
+{
+  "info": {
+    "_postman_id": "10c516fe-9787-4d82-89b1-0236962ae418",
+    "name": "recipe-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45208523"
+  },
+  "item": [
+    {
+      "name": "getAllRecipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/recipes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getRecipeById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/recipes/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "createRecipe",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Pancakes\",\n    \"difficulty\": \"easy\",\n    \"description\": \"Fluffy pancakes perfect for breakfast.\",\n    \"instructions\": \"Mix all ingredients, cook on a griddle until golden brown.\",\n    \"notes\": \"Serve with honey or fresh fruit.\",\n    \"user\": {\n        \"discordUsername\": \"testuser#1234\"\n    },\n    \"recipeIngredients\": [\n        {\n            \"ingredient\": {\n                \"name\": \"Milk\"\n            },\n            \"quantity\": 350,\n            \"unit\": \"ml\"\n        },\n        {\n            \"ingredient\": {\n                \"name\": \"Flour\"\n            },\n            \"quantity\": 150,\n            \"unit\": \"g\"\n        },\n        {\n            \"ingredient\": {\n                \"name\": \"Egg\"\n            },\n            \"quantity\": 1,\n            \"unit\": \"large\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recipes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updateRecipe",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"difficulty\": \"medium\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recipes/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteRecipe",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/recipes/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rateRecipe",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"user\": {\r\n    \"discordUsername\": \"testuser#1234\"\r\n  },\r\n  \"rating\": 5\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recipes/1/rate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "recipes", "1", "rate"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

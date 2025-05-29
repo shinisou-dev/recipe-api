@@ -9,10 +9,11 @@
       "previewLimit": 50,
       "server": "localhost",
       "port": 5432,
+      "askForPassword": true,
       "driver": "PostgreSQL",
       "database": "recipe_db",
       "username": "admin",
       "name": "recipe-api-postres-db"
     }
-  ],
+  ]
 }
