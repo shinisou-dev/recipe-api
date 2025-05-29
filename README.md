@@ -49,6 +49,8 @@ bun install
 bun start
 ```
 
+Once the server is running the API is available at [http://localhost:3000/api/recipes](http://localhost:3000/api/recipes).
+
 ## API Endpoints
 
 These are the available endpoints in the recipe-api. There is also a Postman collection available: [recipe-api.postman_collection.json](https://github.com/shinisou-dev/recipe-api/blob/main/recipe-api.postman_collection.json)
@@ -58,11 +60,13 @@ These are the available endpoints in the recipe-api. There is also a Postman col
 #### Get All Recipes
 
 **Endpoint:** `GET /api/recipes`
+
 **Description:** Retrieves a list of all recipes.
 
 #### Get Recipe by ID
 
 **Endpoint:** `GET /api/recipes/{id}`
+
 **Description:** Retrieves a specific recipe by its ID.
 
 ### POST Endpoints
@@ -70,7 +74,9 @@ These are the available endpoints in the recipe-api. There is also a Postman col
 #### Create a Recipe
 
 **Endpoint:** `POST /api/recipes`
+
 **Description:** Creates a new recipe.
+
 **Example Request Body:**
 
 ```json
@@ -112,7 +118,9 @@ These are the available endpoints in the recipe-api. There is also a Postman col
 #### Rate a Recipe
 
 **Endpoint:** `POST /api/recipes/{id}/rate`
+
 **Description:** Allows a user to rate a recipe.
+
 **Example Request Body:**
 
 ```json
@@ -129,7 +137,9 @@ These are the available endpoints in the recipe-api. There is also a Postman col
 #### Update a Recipe
 
 **Endpoint:** `PUT /api/recipes/{id}`
+
 **Description:** Updates an existing recipe.
+
 **Example Request Body:**
 
 ```json
@@ -143,4 +153,5 @@ These are the available endpoints in the recipe-api. There is also a Postman col
 #### Delete a Recipe
 
 **Endpoint:** `DELETE /api/recipes/{id}`
+
 **Description:** Deletes a recipe by its ID.
