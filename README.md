@@ -43,13 +43,31 @@ docker compose down -v
 bun install
 ```
 
-### Start the API
+### 2. Start the API
 
 ```bash
 bun start
 ```
 
 Once the server is running the API is available at [http://localhost:3000/api/recipes](http://localhost:3000/api/recipes).
+
+## .env File Configuration (Optional)
+
+While default values are provided, they can be overwritten by creating a `.env` file in the root directory.
+
+Here is an example of the variables that can be set:
+
+```
+# Postgres DB
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=admin
+POSTGRES_DB=recipe_db
+
+# Express server
+PORT=3000
+```
 
 ## API Endpoints
 
